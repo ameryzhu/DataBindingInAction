@@ -17,7 +17,7 @@ public class RecyclerViewAdapter extends BindingRecyclerViewAdapter {
                 public int getSpanSize(int position) {
                     Object object =  getAdapterItem(position);
                     if(object instanceof TitleBean){
-                        return 8;
+                        return 4;
                     }else{
                         return 1;
                     }

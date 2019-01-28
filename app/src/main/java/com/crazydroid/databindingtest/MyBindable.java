@@ -21,6 +21,12 @@ public class MyBindable {
     @BindingAdapter(value = {"app:mgr"}, requireAll = false)
     public static void setMgr(RecyclerView view, RecyclerView.LayoutManager manager){
 //        view.setLayoutManager(new GridLayoutManager(view.getContext(),4,LinearLayoutManager.VERTICAL,false));
-        view.setLayoutManager(new GridLayoutManager(view.getContext(),8,LinearLayoutManager.VERTICAL,false));
+        view.setLayoutManager(new GridLayoutManager(view.getContext(),4,LinearLayoutManager.VERTICAL,false));
+    }
+
+    @BindingAdapter(value = {"app:decorator"}, requireAll = false)
+    public static void setDecorator(RecyclerView view, RecyclerView.ItemDecoration decoration){
+//        view.setLayoutManager(new GridLayoutManager(view.getContext(),4,LinearLayoutManager.VERTICAL,false));
+        view.addItemDecoration(decoration);
     }
 }

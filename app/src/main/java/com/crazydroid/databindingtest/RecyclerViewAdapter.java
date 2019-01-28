@@ -10,7 +10,6 @@ public class RecyclerViewAdapter extends BindingRecyclerViewAdapter {
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
-        //如果是title就占据2个单元格(重点)
         GridLayoutManager manager = (GridLayoutManager) recyclerView.getLayoutManager();
         if (manager != null) {
             manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -22,11 +21,6 @@ public class RecyclerViewAdapter extends BindingRecyclerViewAdapter {
                     }else{
                         return 1;
                     }
-//                    if(position==0||position==13||position==25){
-//                        return 8;
-//                    }else {
-//                        return 1;
-//                    }
                 }
             });
         }

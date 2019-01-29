@@ -2,6 +2,7 @@ package com.crazydroid.databindingtest;
 
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableField;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +28,8 @@ public class MyBindable {
     @BindingAdapter(value = {"app:decorator"}, requireAll = false)
     public static void setDecorator(RecyclerView view, RecyclerView.ItemDecoration decoration){
 //        view.setLayoutManager(new GridLayoutManager(view.getContext(),4,LinearLayoutManager.VERTICAL,false));
-        view.addItemDecoration(decoration);
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(view.getContext(),DividerItemDecoration.VERTICAL);
+//        dividerItemDecoration.setDrawable(view.getContext().getResources().getDrawable(R.drawable.divider_shape));
+        view.addItemDecoration(new MyDecorator());
     }
 }

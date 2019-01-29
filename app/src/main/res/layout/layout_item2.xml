@@ -5,14 +5,14 @@
     <data>
         <variable
             name="itemBean"
-            type="com.crazydroid.databindingtest.ItemBean"/>
+            type="com.crazydroid.bean.ItemBean"/>
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#ffffffff"
+        android:onClick="@{itemBean::itemClick}"
         >
 
         <ImageView
@@ -20,7 +20,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true"
-            app:url="@{itemBean.url}"/>
+            app:url="@{itemBean.url}"
+            />
 
     </RelativeLayout>
 </layout>

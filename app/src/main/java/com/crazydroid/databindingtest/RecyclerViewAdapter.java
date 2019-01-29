@@ -3,6 +3,8 @@ package com.crazydroid.databindingtest;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.crazydroid.bean.TitleBean;
+
 import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 
 public class RecyclerViewAdapter extends BindingRecyclerViewAdapter {

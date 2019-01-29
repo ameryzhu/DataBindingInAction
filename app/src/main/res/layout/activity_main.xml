@@ -23,9 +23,9 @@
             app:adapter="@{viewModel.adapter}"
             app:itemBinding="@{viewModel.itemBeanItemBinding}"
             app:mgr ="@{null}"
-            android:background="#a1a1a1"
             android:visibility="visible"
             app:decorator="@{viewModel.decorator}"
+
             />
 
 

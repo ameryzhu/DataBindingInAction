@@ -3,6 +3,10 @@ package com.crazydroid.databindingtest;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableField;
 
+import com.crazydroid.bean.ItemBean;
+import com.crazydroid.bean.TitleBean;
+import com.crazydroid.holder.HolderFactory;
+
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import me.tatarka.bindingcollectionadapter2.OnItemBind;
 
@@ -12,6 +16,8 @@ public class ViewModel {
     public MyDecorator decorator = new MyDecorator();
 
     public RecyclerViewAdapter adapter = new RecyclerViewAdapter();
+
+//    public HolderFactory holderFactory = HolderFactory.getInstance();
 
     public ItemBinding<Object> itemBeanItemBinding = ItemBinding.of(new OnItemBind<Object>() {
         @Override
@@ -67,6 +73,4 @@ public class ViewModel {
         }
         url.set("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3365018759,2226705862&fm=27&gp=0.jpg");
     }
-
-
 }

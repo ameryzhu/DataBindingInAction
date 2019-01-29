@@ -5,14 +5,13 @@
     <data>
         <variable
             name="titleItem"
-            type="com.crazydroid.databindingtest.TitleBean"/>
+            type="com.crazydroid.bean.TitleBean"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#ffffffff"
         >
 
         <TextView
@@ -20,7 +19,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="@{titleItem.title}" />
+            android:text="@{titleItem.title}"
+            android:onClick="@{titleItem::titleClick}"
+            />
 
     </LinearLayout>
 </layout>

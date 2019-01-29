@@ -18,12 +18,5 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel.fetchData();
         binding.setViewModel(viewModel);
-//        binding.setAdapter(adapter);
-//        viewModel.liveData.observe(this, new Observer<List>() {
-//            @Override
-//            public void onChanged(@Nullable List list) {
-//                adapter.notifyDataSetChanged();
-//            }
-//        });
     }
 }

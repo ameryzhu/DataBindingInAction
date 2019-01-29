@@ -1,43 +1,62 @@
 package com.crazydroid.databindingtest;
 
+import android.databinding.DataBindingUtil;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.crazydroid.databindingtest.databinding.LayoutItem2Binding;
+import com.crazydroid.databindingtest.databinding.LayoutItemBinding;
+
 public class MyDecorator extends RecyclerView.ItemDecoration {
 
+    private float mDividerHeight;
+
+    private Paint mPaint;
+
     public MyDecorator() {
-        super();
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setColor(Color.GRAY);
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
-        // get the position
-        int position = parent.getChildAdapterPosition(view);
-        // get the view type
-        int viewTypeTitle = parent.getAdapter().getItemViewType(0);
-        int viewTypeCurrent = parent.getAdapter().getItemViewType(position);
-        if (viewTypeCurrent==viewTypeTitle) {
-            if (parent.getChildAdapterPosition(view) != 0) {
-                //这里直接硬编码为1px
-                outRect.top = 20;
-            }
+
+        //第一个ItemView以及grid item不需要在上面绘制分割线
+        if (parent.getChildAdapterPosition(view) != 0 && DataBindingUtil.getBinding(view) instanceof LayoutItemBinding){
+            //这里直接硬编码为1px
+            outRect.top = 10;
+            mDividerHeight = 10;
         }
     }
 
     @Override
-    public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDraw(c, parent, state);
-//        for (int i = 0; i < parent.getChildCount(); i++) {
-//            View view = parent.getChildAt(i);
-//            int position = parent.getChildAdapterPosition(view);
-//            int viewType = parent.getAdapter().getItemViewType(position);
-//            if (viewType == MY_VIEW_TYPE) {
-//                c.drawRect(view.getLeft(), view.getBottom(), view.getRight(), view.getBottom() + mHeightDp, mPaint);
-//            }
-//        }
+
+        int childCount = parent.getChildCount();
+
+        for ( int i = 0; i < childCount; i++ ) {
+            View view = parent.getChildAt(i);
+
+            int index = parent.getChildAdapterPosition(view);
+
+            //第一个ItemView、非标题类不需要绘制
+            if ( index == 0 ||DataBindingUtil.getBinding(view) instanceof LayoutItem2Binding) {
+                continue;
+            }
+
+            float dividerTop = view.getTop() - mDividerHeight;
+            float dividerLeft = parent.getPaddingLeft();
+            float dividerBottom = view.getTop();
+            float dividerRight = parent.getWidth() - parent.getPaddingRight();
+
+            c.drawRect(dividerLeft,dividerTop,dividerRight,dividerBottom,mPaint);
+        }
     }
 }

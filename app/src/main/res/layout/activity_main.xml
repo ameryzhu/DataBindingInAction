@@ -13,6 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
         <android.support.v7.widget.RecyclerView
@@ -24,9 +27,11 @@
             app:itemBinding="@{viewModel.itemBeanItemBinding}"
             app:mgr ="@{null}"
             android:visibility="visible"
+            android:background="#ffffffff"
             app:decorator="@{viewModel.decorator}"
 
             />
+        </ScrollView>
 
 
         <ImageView

@@ -40,7 +40,6 @@ public class ViewModel {
         list.clear();
         TitleBean titleBean = new TitleBean();
         titleBean.title.set("This is title 1");
-        titleBean.size = 10;
         list.add(titleBean);
         for (int i = 0; i < 15; i++) {
             ItemBean itemBean = new ItemBean();
@@ -51,7 +50,6 @@ public class ViewModel {
         }
         titleBean = new TitleBean();
         titleBean.title.set("This is title 2");
-        titleBean.size = 10;
         list.add(titleBean);
         for (int i = 0; i < 15; i++) {
             ItemBean itemBean = new ItemBean();
@@ -62,7 +60,6 @@ public class ViewModel {
         }
         titleBean = new TitleBean();
         titleBean.title.set("This is title 3");
-        titleBean.size = 10;
         list.add(titleBean);
         for (int i = 0; i < 15; i++) {
             ItemBean itemBean = new ItemBean();

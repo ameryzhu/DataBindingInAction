@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.support.constraint.solver.widgets.ResolutionDimension;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -13,14 +14,14 @@ import com.crazydroid.databindingtest.databinding.LayoutItemBinding;
 
 public class MyDecorator extends RecyclerView.ItemDecoration {
 
-    private float mDividerHeight;
-
     private Paint mPaint;
+
+    private int mDividerHeight;
 
     public MyDecorator() {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.GRAY);
+        mPaint.setColor(Color.parseColor("#F8F8F8"));
     }
 
     @Override
@@ -30,8 +31,8 @@ public class MyDecorator extends RecyclerView.ItemDecoration {
         //第一个ItemView以及grid item不需要在上面绘制分割线
         if (parent.getChildAdapterPosition(view) != 0 && DataBindingUtil.getBinding(view) instanceof LayoutItemBinding){
             //这里直接硬编码为1px
-            outRect.top = 10;
-            mDividerHeight = 10;
+            mDividerHeight = view.getContext().getResources().getDimensionPixelSize(R.dimen.divide_height);
+            outRect.top = mDividerHeight;
         }
     }
 
